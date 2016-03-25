@@ -13,8 +13,4 @@ import {HomeComponent} from './home/home.component';
 
 // bootstrap(HomeComponent, [ROUTER_PROVIDERS]);
 
-
-bootstrap(HomeComponent, [
-   ROUTER_PROVIDERS,
-  provide(LocationStrategy, { useClass: HashLocationStrategy })
-]);
+bootstrap(HomeComponent, [ROUTER_PROVIDERS]);
