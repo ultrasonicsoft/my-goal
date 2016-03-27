@@ -1,9 +1,12 @@
 import {Component} from 'angular2/core';
 import {User} from '../models/user.model';
+import { UserService } from '../services/user.service';
+import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router} from 'angular2/router';
 
 @Component({
     selector: 'sign-up',
-    templateUrl: './app/signup/signup.html'
+    templateUrl: './app/signup/signup.html',
+    directives: [ROUTER_DIRECTIVES]
 })
 export class SignUpComponent {
     username: string;
@@ -13,7 +16,7 @@ export class SignUpComponent {
     allUsersKey = "users";
     allUsers: Array<User>;
 
-    constructor() {
+    constructor(private userService: UserService, private _router: Router) {
         this.allUsers = JSON.parse(localStorage.getItem(this.allUsersKey));
         if (!this.allUsers) {
             this.allUsers = new Array<User>();
@@ -45,7 +48,10 @@ export class SignUpComponent {
         localStorage.setItem(this.allUsersKey, JSON.stringify(this.allUsers));
 
         Materialize.toast('Welcome ' + this.username, 3000)
-        window.location.href = '/dashboard';
+
+        this.userService.setUserLoggedInStatus(true);
+        this.userService.setLoggedInUser(newUser);
+        this._router.navigate(['Dashboard']);
     }
 
     isUserNameTaken() {

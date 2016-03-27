@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
+import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router} from 'angular2/router';
 import {User} from '../models/user.model';
 import { UserService } from '../services/user.service';
 
@@ -16,7 +16,7 @@ export class LoginComponent {
     allUsersKey = "users";
     allUsers: Array<User>;
 
-    constructor(private userService: UserService) {
+    constructor(private userService: UserService, private _router: Router) {
         this.userService = userService;
         this.allUsers = JSON.parse(localStorage.getItem(this.allUsersKey));
         if (!this.allUsers) {
@@ -32,7 +32,8 @@ export class LoginComponent {
             Materialize.toast('Welcome ' + this.username, 3000)
             this.userService.setUserLoggedInStatus(true);
             this.userService.setLoggedInUser(user);
-            window.location.href = '/dashboard';
+            this._router.navigate(['Dashboard']);
+            // window.location.href = '/dashboard';
         }
         else {
             this.userService.setUserLoggedInStatus(false);
