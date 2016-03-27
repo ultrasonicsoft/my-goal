@@ -59,5 +59,18 @@ export class AddGoalComponent {
         this.user.goals.push(newGoal);
         console.log(JSON.stringify(this.user.goals));
 
+        var user = this.allUsers.find(x => x.id === this.user.id);
+
+        var index = this.allUsers.indexOf(user)
+        console.log('index: ' + index);
+
+        if (!this.allUsers[index].goals) {
+            this.allUsers[index].goals = new Array<Goal>();
+        }
+        this.allUsers[index].goals.push(newGoal);
+        console.log(JSON.stringify(this.allUsers));
+
+        localStorage.setItem(this.allUsersKey, JSON.stringify(this.allUsers));
+
     }
 }
