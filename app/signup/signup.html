@@ -4,30 +4,48 @@
         <div class="row center">
             <br>
             <br>
-            <form class="col s12 m8 offset-m2">
+            <form class="col s12 m8 offset-m2" (submit)="signup()">
                 <div class="row">
                     <div class="input-field col s12 m8 offset-m2">
-                        <input id="username" type="text">
-                        <label for="username">User Name</label>
+                        <input id="username" type="text" [(ngModel)]="username" class="validate" required="" aria-required="true">
+                        <label for="username" data-error="wrong">User Name</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12 m8 offset-m2">
-                        <input id="password" type="password" class="validate">
-                        <label for="password">Password</label>
+                        <input id="password" type="password" class="validate" [(ngModel)]="password" required="" aria-required="true">
+                        <label for="password" data-error="wrong">Password</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12 m8 offset-m2">
-                        <input id="confirmPassword" type="password" class="validate">
-                        <label for="confirmPassword">Confirm Password</label>
+                        <input id="confirmPassword" type="password" class="validate" [(ngModel)]="confirmPassword" required="" aria-required="true">
+                        <label for="confirmPassword" data-error="wrong">Confirm Password</label>
                     </div>
                 </div>
                 <div class="row center">
-                    <a id="download-button" class="btn-large waves-effect waves-light orange">Sign Up</a>
+                    <button type="submit" id="download-button" class="btn-large waves-effect waves-light orange">Sign Up</button>
                     <a href="/" class="btn-large waves-effect waves-light orange">Login</a>
                 </div>
             </form>
+
+            <!--<div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email2" type="email" class="validate" required="" aria-required="true">
+                            <label for="email2">Email</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="example" name="example" type="text" class="validate" required="" aria-required="true">
+                            <label for="example">Field</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>-->
         </div>
 
     </div>

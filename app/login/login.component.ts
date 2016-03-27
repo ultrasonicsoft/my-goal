@@ -1,46 +1,34 @@
 import {Component} from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
+import {User} from '../models/user.model';
 
 @Component({
     selector: 'login',
     templateUrl: './app/login/login.html',
     directives: [ROUTER_DIRECTIVES],
-    providers: [
-        ROUTER_PROVIDERS
-        
-    ]
+    providers: [ROUTER_PROVIDERS]
 })
 export class LoginComponent {
-    //here happens the magic. `username` is always restored from the localStorage when you reload the site
-    // @LocalStorage() public username:string = '';
 
-    public usernameKey: string = "username";
     public username: string;
-    public passwordKey: string = "password";
     public password: string;
 
+    allUsersKey = "users";
+    allUsers: Array<User>;
+
     constructor() {
-        let key = "test";
-        let value = "jai ganesh";
-        var storageValue = localStorage.getItem(key) || null;
-        // alert(storageValue);
+        this.allUsers = JSON.parse(localStorage.getItem(this.allUsersKey));
+        if (!this.allUsers) {
+            this.allUsers = new Array<User>();
+        }
     }
-
-    setValue() {
-        console.log(this.usernameKey + ": " + this.username);
-        console.log(this.passwordKey + ": " + this.password);
-
-        localStorage.setItem(this.usernameKey, this.username);
-        localStorage.setItem(this.passwordKey, this.password);
-
+    login() {
+        var user = this.allUsers.find(x => x.id === this.username && x.password === this.password);
+        if (user) {
+            Materialize.toast('Welcome ' + this.username, 3000)
+        }
+        else{
+            Materialize.toast('Incorrect username or password', 3000)
+        }
     }
-    getValue() {
-        var savedUserName = localStorage.getItem(this.usernameKey) || null;
-        var savedPassword = localStorage.getItem(this.passwordKey) || null;
-
-        console.log(this.usernameKey + ": " + savedUserName);
-        console.log(this.passwordKey + ": " + savedPassword);
-    }
-    //here happens the magic. `rememberMe` is always restored from the localStorage when you reload the site
-    // @LocalStorage() public rememberMe:boolean = false;
 }

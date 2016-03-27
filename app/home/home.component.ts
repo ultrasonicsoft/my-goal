@@ -4,6 +4,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
 import { LoginComponent } from '../login/login.component';
 import { SignUpComponent } from '../signup/signup.component';
 
+
 @Component({
     selector: 'home',
     templateUrl: './app/home/home.html',
