@@ -44,6 +44,8 @@ export class SignUpComponent {
 
         localStorage.setItem(this.allUsersKey, JSON.stringify(this.allUsers));
 
+        Materialize.toast('Welcome ' + this.username, 3000)
+        window.location.href = '/dashboard';
     }
 
     isUserNameTaken() {

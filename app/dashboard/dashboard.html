@@ -1,0 +1,37 @@
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <h6 class="header center orange-text">Every day you reach one step closer to your goal...Keep going</h6>
+        <h6 class="header center orange-text">Keep going...</h6>
+        <div class="row center">
+            <br>
+            <br>
+            <form class="col s12 m8 offset-m2" (submit)="signup()">
+                <div class="row center">
+                    <a href="/addGoal" id="download-button" class="btn-large waves-effect waves-light orange">Add New Goal</a>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m8 offset-m2">
+                        <input id="username" type="text" [(ngModel)]="username" class="validate" required="" aria-required="true">
+                        <label for="username" data-error="wrong">User Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m8 offset-m2">
+                        <input id="password" type="password" class="validate" [(ngModel)]="password" required="" aria-required="true">
+                        <label for="password" data-error="wrong">Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m8 offset-m2">
+                        <input id="confirmPassword" type="password" class="validate" [(ngModel)]="confirmPassword" required="" aria-required="true">
+                        <label for="confirmPassword" data-error="wrong">Confirm Password</label>
+                    </div>
+                </div>
+                <div class="row center">
+                    <button type="submit" id="download-button" class="btn-large waves-effect waves-light orange">Sign Up</button>
+                    <a href="/" class="btn-large waves-effect waves-light orange">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

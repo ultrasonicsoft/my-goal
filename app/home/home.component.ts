@@ -3,7 +3,8 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
 
 import { LoginComponent } from '../login/login.component';
 import { SignUpComponent } from '../signup/signup.component';
-
+import { DashboardComponent } from '../dashboard/dashboard.component';
+import { AddGoalComponent } from '../addGoal/addGoal.component';
 
 @Component({
     selector: 'home',
@@ -24,6 +25,16 @@ import { SignUpComponent } from '../signup/signup.component';
         path: '/signup',
         name: 'SignUp',
         component: SignUpComponent
+    },
+    {
+        path: '/dashboard',
+        name: 'Dashboard',
+        component: DashboardComponent
+    },
+    {
+        path: '/addGoal',
+        name: 'AddGoal',
+        component: AddGoalComponent
     }
 ])
 export class HomeComponent {

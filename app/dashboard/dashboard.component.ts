@@ -3,12 +3,10 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
 import {User} from '../models/user.model';
 
 @Component({
-    selector: 'login',
-    templateUrl: './app/login/login.html',
-    directives: [ROUTER_DIRECTIVES],
-    providers: [ROUTER_PROVIDERS]
+    selector: 'dashboard',
+    templateUrl: './app/dashboard/dashboard.html',
 })
-export class LoginComponent {
+export class DashboardComponent {
 
     public username: string;
     public password: string;
@@ -26,7 +24,6 @@ export class LoginComponent {
         var user = this.allUsers.find(x => x.id === this.username && x.password === this.password);
         if (user) {
             Materialize.toast('Welcome ' + this.username, 3000)
-            window.location.href = '/dashboard';
         }
         else{
             Materialize.toast('Incorrect username or password', 3000)
