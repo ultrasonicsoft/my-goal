@@ -1,0 +1,32 @@
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <h4 class="header center orange-text">Add New Goal</h4>
+        <h6 class="header center orange-text">Great start is a half win...</h6>
+        <div class="row center">
+            <form class="col s12 m8 offset-m2" (submit)="addNewGoal()">
+                <div class="row">
+                    <div class="input-field col s12 m8 offset-m2">
+                        <input id="goalName" type="text" [(ngModel)]="goalName" class="validate" required="" aria-required="true">
+                        <label for="goalName" data-error="wrong">Goal Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m8 offset-m2">
+                        <label for="goalName" data-error="wrong">Goal Start Date</label>
+                        <input type="date" class="datepicker">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m8 offset-m2">
+                        <label for="goalName" data-error="wrong">Goal End Date</label>
+                        <input type="date" class="datepicker">
+                    </div>
+                </div>
+                <div class="row center">
+                    <button type="submit" id="download-button" class="btn-large waves-effect waves-light orange">Add New Goal</button>
+                    <a href="/dashboard" class="btn-large waves-effect waves-light orange">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
