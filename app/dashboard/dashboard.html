@@ -6,33 +6,22 @@
         <div class="row center">
             <br>
             <br>
-            <form class="col s12 m8 offset-m2" (submit)="signup()">
-                <div class="row center">
-                    <a [routerLink]="['/AddGoal']" id="download-button" class="btn-large waves-effect waves-light orange">Add New Goal</a>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 m8 offset-m2">
-                        <input id="username" type="text" [(ngModel)]="username" class="validate" required="" aria-required="true">
-                        <label for="username" data-error="wrong">User Name</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 m8 offset-m2">
-                        <input id="password" type="password" class="validate" [(ngModel)]="password" required="" aria-required="true">
-                        <label for="password" data-error="wrong">Password</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 m8 offset-m2">
-                        <input id="confirmPassword" type="password" class="validate" [(ngModel)]="confirmPassword" required="" aria-required="true">
-                        <label for="confirmPassword" data-error="wrong">Confirm Password</label>
-                    </div>
-                </div>
-                <div class="row center">
-                    <button type="submit" id="download-button" class="btn-large waves-effect waves-light orange">Sign Up</button>
-                    <a href="/" class="btn-large waves-effect waves-light orange">Login</a>
-                </div>
-            </form>
+            <div class="row center">
+                <a [routerLink]="['/AddGoal']" id="download-button" class="btn-large waves-effect waves-light orange">Add New Goal</a>
+            </div>
+            <ul class="collection with-header">
+                <li class="collection-header">
+                    <h4>Goals</h4></li>
+                <li class="collection-item" *ngFor="#goal of user.goals">
+                    <h4>{{goal.name}}</h4>
+                    <h4>{{goal.endDate | daysLeft}} days to go</h4>
+                    <h5>End Date: {{goal.endDate}}</h5>
+                </li>
+
+            </ul>
+        </div>
+        <div class="row center">
+            <button (click)="deleteAllGoals()" class="btn-large waves-effect waves-light orange">Delete All Goals</button>
         </div>
     </div>
 </div>

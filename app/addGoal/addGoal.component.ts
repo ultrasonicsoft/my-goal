@@ -1,7 +1,7 @@
 ///<reference path="../../typings/jquery/jquery.d.ts" />
 
 import {Component} from 'angular2/core';
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
+import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router } from 'angular2/router';
 import {User} from '../models/user.model';
 import { UserService } from '../services/user.service';
 import { Goal } from '../models/goal.model';
@@ -24,7 +24,7 @@ export class AddGoalComponent {
     startDate: Date;
     endDate: Date;
 
-    constructor(private userService: UserService) {
+    constructor(private userService: UserService, private _router: Router) {
         this.allUsers = JSON.parse(localStorage.getItem(this.allUsersKey));
         if (!this.allUsers) {
             this.allUsers = new Array<User>();
@@ -71,6 +71,9 @@ export class AddGoalComponent {
         console.log(JSON.stringify(this.allUsers));
 
         localStorage.setItem(this.allUsersKey, JSON.stringify(this.allUsers));
-
+        this.allUsers = JSON.parse(localStorage.getItem(this.allUsersKey));
+        console.log(JSON.stringify(this.allUsers));
+        
+        this._router.navigate(['Dashboard']);
     }
 }
