@@ -1,10 +1,10 @@
 import {Component} from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 import {User} from '../models/user.model';
-
+import { UserService } from '../services/user.service';
 @Component({
     selector: 'dashboard',
-    templateUrl: './app/dashboard/dashboard.html',
+    templateUrl: './app/dashboard/dashboard.html'
 })
 export class DashboardComponent {
 
@@ -13,8 +13,13 @@ export class DashboardComponent {
 
     allUsersKey = "users";
     allUsers: Array<User>;
+    user: User;
 
-    constructor() {
+    constructor(private userService: UserService) {
+        console.log('reading count at dashboard: ' + this.userService.getCount());
+
+        this.user = userService.getLoggedInUser();
+
         this.allUsers = JSON.parse(localStorage.getItem(this.allUsersKey));
         if (!this.allUsers) {
             this.allUsers = new Array<User>();
@@ -25,7 +30,7 @@ export class DashboardComponent {
         if (user) {
             Materialize.toast('Welcome ' + this.username, 3000)
         }
-        else{
+        else {
             Materialize.toast('Incorrect username or password', 3000)
         }
     }

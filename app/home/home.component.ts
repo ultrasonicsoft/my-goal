@@ -38,8 +38,4 @@ import { AddGoalComponent } from '../addGoal/addGoal.component';
     }
 ])
 export class HomeComponent {
-
-    constructor() {
-    }
-
 }

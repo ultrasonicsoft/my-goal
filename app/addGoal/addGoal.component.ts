@@ -9,7 +9,6 @@ import {User} from '../models/user.model';
     templateUrl: './app/addGoal/addGoal.html',
 })
 export class AddGoalComponent {
-
     public username: string;
     public password: string;
 
@@ -29,13 +28,5 @@ export class AddGoalComponent {
         });
     }
 
-    login() {
-        var user = this.allUsers.find(x => x.id === this.username && x.password === this.password);
-        if (user) {
-            Materialize.toast('Welcome ' + this.username, 3000)
-        }
-        else {
-            Materialize.toast('Incorrect username or password', 3000)
-        }
-    }
+    
 }
