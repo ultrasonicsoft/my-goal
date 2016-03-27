@@ -4,7 +4,8 @@ import {User} from '../models/user.model';
 import { UserService } from '../services/user.service';
 @Component({
     selector: 'dashboard',
-    templateUrl: './app/dashboard/dashboard.html'
+    templateUrl: './app/dashboard/dashboard.html',
+    directives: [ROUTER_DIRECTIVES]
 })
 export class DashboardComponent {
 

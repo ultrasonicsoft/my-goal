@@ -10,7 +10,20 @@
                         <label for="goalName" data-error="wrong">Goal Name</label>
                     </div>
                 </div>
+
                 <div class="row">
+                    <label for="hasStartDate">Has Start Date?</label>
+                </div>
+                <!-- Switch -->
+                <div class="switch">
+                    <label id="hasStartDate">
+                        No
+                        <input type="checkbox" [(ngModel)]="hasStartDate" >
+                        <span class="lever"></span> Yes
+                    </label>
+                </div>
+
+                <div class="row" [hidden]="!hasStartDate">
                     <div class="input-field col s12 m8 offset-m2">
                         <label for="goalName" data-error="wrong">Goal Start Date</label>
                         <input type="date" class="datepicker">
@@ -24,7 +37,7 @@
                 </div>
                 <div class="row center">
                     <button type="submit" id="download-button" class="btn-large waves-effect waves-light orange">Add New Goal</button>
-                    <a href="/dashboard" class="btn-large waves-effect waves-light orange">Cancel</a>
+                    <a [routerLink]="['/Dashboard']" class="btn-large waves-effect waves-light orange">Cancel</a>
                 </div>
             </form>
         </div>

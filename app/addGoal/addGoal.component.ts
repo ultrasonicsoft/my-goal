@@ -7,6 +7,7 @@ import {User} from '../models/user.model';
 @Component({
     selector: 'addGoal',
     templateUrl: './app/addGoal/addGoal.html',
+    directives: [ROUTER_DIRECTIVES]
 })
 export class AddGoalComponent {
     public username: string;
@@ -14,6 +15,7 @@ export class AddGoalComponent {
 
     allUsersKey = "users";
     allUsers: Array<User>;
+    hasStartDate = true;
 
     constructor() {
         this.allUsers = JSON.parse(localStorage.getItem(this.allUsersKey));
@@ -28,5 +30,5 @@ export class AddGoalComponent {
         });
     }
 
-    
+
 }

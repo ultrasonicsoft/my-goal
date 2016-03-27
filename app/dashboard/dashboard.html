@@ -8,7 +8,7 @@
             <br>
             <form class="col s12 m8 offset-m2" (submit)="signup()">
                 <div class="row center">
-                    <a href="/addGoal" id="download-button" class="btn-large waves-effect waves-light orange">Add New Goal</a>
+                    <a [routerLink]="['/AddGoal']" id="download-button" class="btn-large waves-effect waves-light orange">Add New Goal</a>
                 </div>
                 <div class="row">
                     <div class="input-field col s12 m8 offset-m2">
